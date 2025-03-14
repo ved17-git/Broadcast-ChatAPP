@@ -31,6 +31,13 @@ const [allMessages, setAllMessages] = useState<{ message: string; sender: string
 const [isJoined, setIsJoined]=useState(false)
 
 
+const keydownHandler=(e:React.KeyboardEvent<HTMLInputElement>)=>{
+ if(e.key=="Enter"){
+  sendMessage()
+ }
+}
+
+
 const sendMessage=()=>{
  const data={
   type:"chat",
@@ -39,9 +46,8 @@ const sendMessage=()=>{
   room:room
  }
 
- console.log(data);
-
  socket?.send(JSON.stringify(data))
+ setMessage("")
 }
 
 
@@ -51,7 +57,6 @@ const handleSubmit=()=>{
     name:name,
     room:room
   }
-    console.log(data);
 
     if(!data.name || !data.room){
       toast("enter all details")
@@ -81,7 +86,6 @@ const handleSubmit=()=>{
     for(let i=0; i<4; i++){
       room=room+Math.floor(Math.random()*10);
     }
-    console.log("random room code" +room);
     setRandomRoom(room)
     toast("Room has been Created.")
   }
@@ -135,8 +139,8 @@ const handleSubmit=()=>{
     
     
     <div className="flex gap-3 mt-5">
-     <Input placeholder="Type a message" name="message" value={message} onChange={(e)=>setMessage(e.target.value)}/>
-     <Button className="cursor-pointer" type="submit" onClick={sendMessage}>Send</Button>
+     <Input placeholder="Type a message" name="message" value={message} onChange={(e)=>setMessage(e.target.value)}  onKeyDown={(e)=>{keydownHandler(e)}}/>
+     <Button className="cursor-pointer" type="submit" onClick={sendMessage} >Send</Button>
     </div>
     
     </div>     
