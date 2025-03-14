@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/theme";
@@ -13,6 +14,9 @@ const tags = Array.from({ length: 5 }).map(
 
 
 function Chat() {
+
+  
+  
   return (
     <>
     <div className="w-full h-screen flex justify-center items-center ">
@@ -36,7 +40,7 @@ function Chat() {
 
       <h1 className="text-gray-500"> temporary room that expires after all users exit</h1>
      
-     <h1 className="mt-3 bg-[#F5F5F5] dark:bg-[#262626] py-3 pl-4 rounded-md">Room Code: 2134</h1>
+     <h1 className="mt-3 bg-[#F5F5F5] dark:bg-[#262626] py-3 pl-4 rounded-md">Room Code: 4782</h1>
 
      <div className="w-full mt-5"> 
      <ScrollArea className="h-72 w-full rounded-md border">
@@ -53,12 +57,12 @@ function Chat() {
 
     </div>
 
-
+   
     <div className="flex gap-3 mt-5">
-       <Input placeholder="Type a message"/>
-       <Button className="cursor-pointer">Send</Button>
+       <Input placeholder="Type a message" name="message"/>
+       <Button className="cursor-pointer" type="submit">Send</Button>
     </div>
-      
+
 </div>     
 </div>
 

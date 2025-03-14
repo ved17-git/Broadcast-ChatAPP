@@ -22,15 +22,13 @@ wss.on("connection",(socket)=>{
          }
 
 
-
          if(userData.type=="chat"){
              
             data.forEach((x)=>{
                 if(x.room==userData.room){
-                    x.socket.send(userData.message)
+                    x.socket.send(e.toString())
                 }
             })
-           socket.send(userData.message)
          }
      
     })
