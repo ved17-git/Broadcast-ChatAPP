@@ -65,7 +65,7 @@ const handleSubmit=()=>{
    
 
    useEffect(()=>{
-     const ws=new WebSocket ("ws://localhost:8080")
+     const ws=new WebSocket ("https://broadcast-chatapp.onrender.com/")
      
      setSocket(ws)
      ws.onmessage=(e)=>{
