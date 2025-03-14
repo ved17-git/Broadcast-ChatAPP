@@ -170,7 +170,7 @@ const handleSubmit=()=>{
  <Input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Enter your name"/> 
 
  <div className="flex gap-3">
- <Input type="number" name="room" value={room} onChange={(e)=>setRoom(e.target.value)}  placeholder="Enter room name"/> 
+ <Input type="number" name="room" value={room} onChange={(e)=>setRoom(e.target.value)}  placeholder="Enter room"/> 
  <Button className="cursor-pointer" onClick={handleSubmit}>Join room</Button>
  </div>
 </form>
