@@ -1,11 +1,13 @@
 import { WebSocketServer } from "ws";
+import 'dotenv/config'
 
-const wss=new WebSocketServer({port:8080})
+const port=process.env.PORT
+const wss=new WebSocketServer({port:port})
 
 const data = []
 
 wss.on("connection",(socket)=>{
-    console.log("Connected to ws server");
+    console.log(`Connected to ws server port:${port}`);
  
     socket.on("message",(e)=>{
          const userData=JSON.parse(e);
