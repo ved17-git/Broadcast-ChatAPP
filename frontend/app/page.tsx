@@ -26,7 +26,7 @@ const [socket,setSocket]=useState<WebSocket>()
 
 const [message,setMessage]=useState("")
 
-const [allMessages, setAllMessages] = useState<{ message: string; sender: string }[]>([]);
+const [allMessages, setAllMessages] = useState<{ message: string; sender: string;  }[]>([]);
 
 const [isJoined, setIsJoined]=useState(false)
 
@@ -39,15 +39,20 @@ const keydownHandler=(e:React.KeyboardEvent<HTMLInputElement>)=>{
 
 
 const sendMessage=()=>{
+
+if(!message){
+  toast("enter a message")
+  return
+}
+
  const data={
   type:"chat",
   message:message,
   sender:name,
   room:room
  }
-
- socket?.send(JSON.stringify(data))
- setMessage("")
+  socket?.send(JSON.stringify(data));
+  setMessage("");
 }
 
 

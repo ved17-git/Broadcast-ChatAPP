@@ -5,7 +5,6 @@ const port=process.env.PORT
 const wss=new WebSocketServer({port:port})
 
 const data = []
-
 wss.on("connection",(socket)=>{
     console.log(`Connected to ws server port:${port}`);
  
