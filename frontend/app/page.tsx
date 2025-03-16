@@ -77,11 +77,19 @@ const handleSubmit=()=>{
    useEffect(()=>{
      const ws=new WebSocket ("wss://broadcast-chatapp.onrender.com/")
      
-     setSocket(ws)
-     ws.onmessage=(e)=>{
+
+
+    ws.onopen=()=>{
+      console.log("Connected to ws server");
+      setSocket(ws)
+    }
+
+        
+    ws.onmessage=(e)=>{
       const parsedData = JSON.parse(e.data); 
       setAllMessages((m) => [...m, parsedData]);
      }
+
    },[])
 
 
